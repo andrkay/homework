@@ -1,0 +1,28 @@
+<?php
+$host = 'localhost'; // имя хоста
+$user = 'root';      // имя пользователя
+$pass = '';          // пароль
+$name = 'mydb';      // имя базы данных
+
+$link = mysqli_connect($host, $user, $pass, $name);
+
+$query = 'SELECT * FROM users';
+$res = mysqli_query($link, $query) or die(mysqli_error($link));
+var_dump($res);
+
+$query1 = "SELECT * FROM users LIMIT 4";
+$res1 = mysqli_query($link, $query1) or die(mysqli_error($link));
+var_dump($res1);
+
+$query2 = "SELECT * FROM users LIMIT 1, 3";
+$res2 = mysqli_query($link, $query2) or die(mysqli_error($link));
+var_dump($res2);
+
+$query3 = "SELECT * FROM users ORDER BY salary ASC LIMIT 3";
+$res3 = mysqli_query($link, $query3) or die(mysqli_error($link));
+var_dump($res3);
+
+$query4 = "SELECT * FROM users ORDER BY salary DESC LIMIT 3";
+$res4 = mysqli_query($link, $query4) or die(mysqli_error($link));
+var_dump($res4);
+?>
